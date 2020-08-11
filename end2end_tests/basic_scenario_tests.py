@@ -1,5 +1,7 @@
 import allure
 import pytest
+from tests_base.drivers.webdriver_factory import WebDriverFactory
+from tests_base.instruments.browser import Browser
 from tests_base.logger import automation_logger, logger
 from ui_tests.ui_tests_base.base_page import BasePage
 
@@ -10,14 +12,28 @@ test_case = "TestBasicScenario"
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.usefixtures("web_driver")
 @allure.description("""
-    UI Test.
+    UI Parameterized Test run with Chrome and Firefox browsers.
     1. Simulate basic scenario with two players.
     """)
 @pytest.mark.e2e
 class TestBasicScenario(object):
     base_page = BasePage()
 
+    @pytest.fixture()
     @automation_logger(logger)
+    def web_driver(self, request):
+        def stop_driver():
+            logger.info("TEST STOP -> Closing browser... {0}".format(driver.name))
+            Browser.close_browser(driver)
+
+        logger.info("Driver is: {0}".format(request.param))
+        driver = WebDriverFactory.get_driver(request.param)
+        request.cls.driver = driver
+        request.addfinalizer(stop_driver)
+        return driver
+
+    @automation_logger(logger)
+    @pytest.mark.parametrize("web_driver", ["Chrome", "Firefox", ], indirect=True)
     def test_basic_scenario(self, web_driver):
         allure.step("Start playing.")
         result = self.base_page.open_base_page(web_driver)

@@ -30,5 +30,6 @@ class BaseConfig:
 
     M_CHROME_PATH = drivers_dir + parser.get('WEB_DRIVER_MAC', 'm_chrome')
     M_FIREFOX_PATH = drivers_dir + parser.get('WEB_DRIVER_MAC', 'm_firefox')
+    M_OPERA_PATH = drivers_dir + parser.get('WEB_DRIVER_MAC', 'm_opera')
 
     SELENIUM_JAR = drivers_dir + parser.get('DATA', 'selenium_jar')

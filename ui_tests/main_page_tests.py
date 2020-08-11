@@ -8,7 +8,6 @@ test_case = "TestMainPage"
 
 @allure.testcase(test_case)
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.usefixtures("web_driver")
 @allure.description("""
     UI Test.
     1. Check that default title of the main exists and presented.
@@ -19,6 +18,7 @@ class TestMainPage(object):
     base_page = BasePage()
 
     @automation_logger(logger)
+    @pytest.mark.parametrize("web_driver", ["chrome", ], indirect=True)
     def test_default_title(self, web_driver):
         allure.step("Check the default title.")
         result = self.base_page.open_base_page(web_driver)
@@ -29,6 +29,7 @@ class TestMainPage(object):
         logger.info(F"============ TEST CASE {test_case} / 1 PASSED ===========")
 
     @automation_logger(logger)
+    @pytest.mark.parametrize("web_driver", ["chrome", ], indirect=True)
     def test_new_game_button(self, web_driver):
         allure.step("Check 'New game' button.")
         result = self.base_page.open_base_page(web_driver)

@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from selenium.common.exceptions import WebDriverException
+from webdriver_manager.opera import OperaDriverManager
 from testcontainers.selenium import BrowserWebDriverContainer
 
 from config_definitions import BaseConfig
@@ -24,6 +24,9 @@ class WebDriverFactory:
     # chrome_options.add_argument('--remote-debugging-port=9222')
     chrome_options.add_experimental_option('w3c', False)
 
+    opera_options = webdriver.ChromeOptions()
+    opera_options.binary_location = BaseConfig.M_OPERA_PATH
+
     @classmethod
     @automation_logger(logger)
     def get_driver(cls, browser_name=None):
@@ -32,6 +35,7 @@ class WebDriverFactory:
         :param browser_name: Chrome, Firefox, Edge or IE
         :return: web driver.
         """
+        browser_name = browser_name.lower()
         if browser_name is None:
             browser_name = Browsers.CHROME.value
         if Utils.detect_os() == OperationSystem.WINDOWS.value:
@@ -53,7 +57,6 @@ class WebDriverFactory:
         :param browser_name: Chrome, Firefox, Edge or IE
         :return: web driver.
         """
-        browser_name = browser_name.lower()
         if browser_name == Browsers.FIREFOX.value:
             try:
                 return webdriver.Firefox(executable_path=GeckoDriverManager().install())
@@ -64,10 +67,10 @@ class WebDriverFactory:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_experimental_option('w3c', False)
             try:
-                return webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+                return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
             except Exception as e:
                 logger.exception(e)
-                return webdriver.Chrome(BaseConfig.W_CHROME_PATH, options=chrome_options)
+                return webdriver.Chrome(executable_path=BaseConfig.W_CHROME_PATH, options=chrome_options)
         elif browser_name == Browsers.IE.value:
             return webdriver.Ie(BaseConfig.W_IE_PATH)
         elif browser_name == Browsers.EDGE.value:
@@ -93,10 +96,10 @@ class WebDriverFactory:
                 return webdriver.Firefox(executable_path=BaseConfig.L_FIREFOX_PATH)
         elif browser_name == Browsers.CHROME.value:
             try:
-                return webdriver.Chrome(ChromeDriverManager().install(), options=cls.chrome_options)
+                return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=cls.chrome_options)
             except Exception as e:
                 logger.exception(e)
-                return webdriver.Chrome(BaseConfig.L_CHROME_PATH, options=cls.chrome_options)
+                return webdriver.Chrome(executable_path=BaseConfig.L_CHROME_PATH, options=cls.chrome_options)
         else:
             error = "No such " + browser_name + " browser exists"
             logger.exception(error)
@@ -120,10 +123,10 @@ class WebDriverFactory:
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_experimental_option('w3c', False)
             try:
-                return webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+                return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
             except Exception as e:
                 logger.exception(e)
-                return webdriver.Chrome(BaseConfig.M_CHROME_PATH, options=chrome_options)
+                return webdriver.Chrome(executable_path=BaseConfig.M_CHROME_PATH, options=chrome_options)
         else:
             error = "No such " + browser_name + " browser exists"
             logger.exception(error)

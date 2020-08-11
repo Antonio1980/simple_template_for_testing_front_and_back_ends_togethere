@@ -1,8 +1,8 @@
 
-class AutomationError(BaseException):
+class AutomationError(Exception):
     
     def __init__(self, *args, **kwargs):
-        super(BaseException, self).__init__(*args)
+        super(Exception, self).__init__(*args)
         AutomationError.__init__(self, *args, **kwargs)
 
     def __str__(self):
