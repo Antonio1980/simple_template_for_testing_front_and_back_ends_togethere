@@ -13,7 +13,8 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 
-Automation test framework covers backend and frontend, provides functionality testing:
+This is a final task provided as part of interview (third day) of "Taranis" company.
+Automation test framework covers backend and frontend, provides functionality for testing:
 
 - API
 - UI
