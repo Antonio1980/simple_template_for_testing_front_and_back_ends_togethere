@@ -3,6 +3,7 @@ CONTENTS OF THIS FILE
 ---------------------
 
  * Introduction
+ * Location
  * Technologies
  * Requirements
  * Tests
@@ -19,6 +20,13 @@ Automation test framework covers backend and frontend, provides functionality fo
 - API
 - UI
 - EndToEnd
+
+
+LOCATION
+--------
+
+git@github.com:Antonio1980/simple_template_for_testing_front_and_back_ends_togethere.git
+https://github.com/Antonio1980/simple_template_for_testing_front_and_back_ends_togethere.git
 
 
 TECHNOLOGIES
