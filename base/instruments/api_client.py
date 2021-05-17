@@ -4,8 +4,8 @@ from json import JSONDecodeError
 import requests
 
 from config_definitions import BaseConfig
-from tests_base.constants import RESPONSE_TEXT
-from tests_base.logger import logger, automation_logger
+from base.constants import RESPONSE_TEXT
+from base.logger import logger, automation_logger
 
 
 class ApiClient(object):

@@ -5,7 +5,7 @@ import datetime
 import inspect
 import functools
 
-from tests_base import tests_base
+from base import tests_base
 
 
 def automation_logger(logger_):

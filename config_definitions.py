@@ -1,6 +1,6 @@
 import os
 import configparser
-from tests_base.drivers import drivers_dir
+from base.drivers import drivers_dir
 
 
 def get_parser(config):

@@ -1,7 +1,7 @@
 from config_definitions import BaseConfig
-from tests_base.instruments.browser import Browser
-from tests_base.logger import automation_logger, logger
-from ui_tests.ui_tests_base.locators import base_page_locators
+from base.instruments.browser import Browser
+from base.logger import automation_logger, logger
+from tests.ui_tests.ui_tests_base.locators import base_page_locators
 
 
 class BasePage(Browser):

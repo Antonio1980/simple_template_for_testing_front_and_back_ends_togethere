@@ -1,9 +1,9 @@
 import allure
 import pytest
-from tests_base.drivers.webdriver_factory import WebDriverFactory
-from tests_base.instruments.browser import Browser
-from tests_base.logger import automation_logger, logger
-from ui_tests.ui_tests_base.base_page import BasePage
+from base.drivers.webdriver_factory import WebDriverFactory
+from base.instruments.browser import Browser
+from base.logger import automation_logger, logger
+from tests.ui_tests.ui_tests_base.base_page import BasePage
 
 test_case = "TestBasicScenario"
 

@@ -6,8 +6,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
-from tests_base.enums import DriverHelper
-from tests_base.logger import automation_logger, logger
+from base.enums import DriverHelper
+from base.logger import automation_logger, logger
 from selenium.webdriver.support import expected_conditions as ec
 
 

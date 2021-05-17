@@ -1,9 +1,9 @@
 import time
 import pytest
-from tests_base.drivers.webdriver_factory import WebDriverFactory
-from tests_base.instruments.api_client import ApiClient
-from tests_base.instruments.browser import Browser
-from tests_base.logger import automation_logger, logger
+from base.drivers.webdriver_factory import WebDriverFactory
+from base.instruments.api_client import ApiClient
+from base.instruments.browser import Browser
+from base.logger import automation_logger, logger
 
 
 @pytest.fixture(scope="class")

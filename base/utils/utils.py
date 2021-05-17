@@ -1,7 +1,7 @@
 import platform
-from tests_base.automation_error import AutomationError
-from tests_base.enums import OperationSystem
-from tests_base.logger import logger, automation_logger
+from base.automation_error import AutomationError
+from base.enums import OperationSystem
+from base.logger import logger, automation_logger
 
 
 class Utils:

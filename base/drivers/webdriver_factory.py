@@ -8,10 +8,10 @@ from webdriver_manager.opera import OperaDriverManager
 from testcontainers.selenium import BrowserWebDriverContainer
 
 from config_definitions import BaseConfig
-from tests_base.automation_error import AutomationError
-from tests_base.enums import Browsers, OperationSystem
-from tests_base.logger import logger, automation_logger
-from tests_base.utils.utils import Utils
+from base.automation_error import AutomationError
+from base.enums import Browsers, OperationSystem
+from base.logger import logger, automation_logger
+from base.utils.utils import Utils
 
 
 class WebDriverFactory:

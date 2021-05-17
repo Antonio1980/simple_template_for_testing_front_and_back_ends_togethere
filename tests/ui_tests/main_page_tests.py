@@ -1,7 +1,7 @@
 import allure
 import pytest
-from tests_base.logger import automation_logger, logger
-from ui_tests.ui_tests_base.base_page import BasePage
+from base.logger import automation_logger, logger
+from tests.ui_tests.ui_tests_base.base_page import BasePage
 
 test_case = "TestMainPage"
 

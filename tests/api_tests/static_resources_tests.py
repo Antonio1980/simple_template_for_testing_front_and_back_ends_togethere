@@ -1,6 +1,6 @@
 import allure
 import pytest
-from tests_base.logger import automation_logger, logger
+from base.logger import automation_logger, logger
 
 test_case = "TestStaticResources"
 
